@@ -54,7 +54,7 @@ func SetLoc(v string) Setting {
 //SetTimeZone Sets the time_zone used for client-server interaction
 func SetTimeZone(v string) Setting {
 	return func(source string) string {
-		return stringSetting(source, "time_zone", url.QueryEscape(fmt.Sprintf(`'%s'`,v)))
+		return stringSetting(source, "time_zone", url.QueryEscape(fmt.Sprintf(`'%s'`, v)))
 	}
 }
 
@@ -104,6 +104,13 @@ func SetAllowAllFiles(ok bool) Setting {
 func SetClientFoundRows(ok bool) Setting {
 	return func(source string) string {
 		return boolSetting(source, "clientFoundRows", ok)
+	}
+}
+
+//SetMultiStatements multiStatements=true multiStatements.
+func SetMultiStatements(ok bool) Setting {
+	return func(source string) string {
+		return boolSetting(source, "multiStatements", ok)
 	}
 }
 
